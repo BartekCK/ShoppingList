@@ -2,9 +2,9 @@
   "name": "shoppinglist",
   "version": "1.0.0",
   "description": "",
-  "main": "server.js",
+  "main": "server.mjs",
   "scripts": {
-    "start": "nodemon server.js"
+    "start": "nodemon --experimental-modules ./src/server.mjs"
   },
   "author": "Bartlomiej Kotarski",
   "license": "MIT",
@@ -13,5 +13,6 @@
     "express": "^4.17.1",
     "mongoose": "^5.7.12",
     "nodemon": "^2.0.1"
-  }
+  },
+  "devDependencies": {}
 }
