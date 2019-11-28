@@ -1,19 +1,20 @@
 import express from 'express';
 import ProductController from '../controllers/ProductController.mjs'
+import {catchAsync} from '../middlewares/errors.mjs'
 
 export const productRoute = express.Router();
 
 //POST /products
-productRoute.post('/',ProductController.create);
+productRoute.post('/',catchAsync(ProductController.create));
 
 //GET /products/productId
-productRoute.get('/:productId',ProductController.findOne);
+productRoute.get('/:productId',catchAsync(ProductController.findOne));
 
 //GET /products
-productRoute.get('/',ProductController.findAll);
+productRoute.get('/',catchAsync(ProductController.findAll));
 
 //PUT /products/productId
-productRoute.put('/:productId',ProductController.update);
+productRoute.put('/:productId',catchAsync(ProductController.update));
 
 //DELETE /products/productId
-productRoute.delete('/:productId',ProductController.delete);
+productRoute.delete('/:productId',catchAsync(ProductController.delete));

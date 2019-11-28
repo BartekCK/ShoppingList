@@ -2,58 +2,59 @@ import ProductModel from "../models/Product.mjs"
 
 
 export default {
-    async findOne(req,res){
-        try{
-            const product = await ProductModel.findOne({_id: req.params.productId});
-            return res.status(200).json(product);
-        }catch(err){
-            return err;
-        }
+    async findOne(req,res,next){
+        
+        const product = await ProductModel.findOne({_id: req.params.productId});
+        if(!product)
+            return next();
+
+        return res.status(200).json(product);
+        
     },
     async create(req,res){
-        try{
-            const product = await new ProductModel({
-                title: req.body.title,
+       
+        const product = await new ProductModel({
+            title: req.body.title,
+            price: req.body.price
+        }).save();
+        res.status(201).json({data:product, message: 'Product was added'});
+        
+    },
+    async findAll(req,res,next){
+        
+        const products = await ProductModel.find();
+        if(!products)
+            return next();
+        return res.status(200).json(products);
+    
+    },
+    async update(req,res,next){
+       
+        const product = await ProductModel.updateOne(
+            {
+                _id:req.params.productId
+            },
+            {
+                $set:
+                {
                 price: req.body.price
-            }).save();
-         res.status(201).json({data:product, message: 'Product was added'});
-        }catch(err){
-            return res.json(err);
-        }
-    },
-    async findAll(req,res){
-        try{
-            const products = await ProductModel.find();
-            return res.status(200).json(products);
-        }catch(err){
-            return err;
-        }
-    },
-    async update(req,res){
-        try{
-            const product = await ProductModel.updateOne(
-                {
-                    _id:req.params.productId
-                },
-                {
-                    $set:
-                    {
-                    price: req.body.price
-                    }
                 }
-            );
-            return res.status(201).json(product);
-        }catch(err){
-            return res.json(err);
-        }
+            }
+        );
+        if(!product)
+            return next();
+
+        return res.status(201).json(product);
+        
     },
     async delete(req,res){
-        try{
-            const product = await ProductModel.deleteOne({_id:req.params.productId});
-            return res.status(200).json(product);
-        }catch(err){
-            return res.json(err);
-        }
+        
+        const product = await ProductModel.deleteOne({_id:req.params.productId});
+        if(!product)
+            return next();
+
+        return res.status(200).json(product);
+        
     }
 
 };
