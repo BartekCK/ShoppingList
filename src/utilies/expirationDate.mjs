@@ -1,3 +1,11 @@
 const today = new Date();
 
-export const newExpirationDate = new Date(today.getFullYear,today.getMonth,today.getDay + 14);
+export default ()=>{
+    const myDate = new Date();
+
+    myDate.setYear(today.getFullYear());
+    myDate.setMonth(today.getMonth());
+    myDate.setDate(today.getDay()+14);
+
+    return myDate;
+}
