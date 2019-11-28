@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
 import newExpirationDate  from "../utilies/expirationDate.mjs";
 
-const Product = mongoose.Schema({
+export const Product = mongoose.Schema({
     title:{
         type: String,
         require: true
