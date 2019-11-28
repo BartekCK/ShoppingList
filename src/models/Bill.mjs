@@ -1,10 +1,20 @@
 import mongoose from "mongoose";
 import {Product} from '../models/Product.mjs'
-import {User} from '../models/User.mjs'
 
 export const Bill = mongoose.Schema({
-    user: User,
-    product: [Product]
+
+    products: [{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Products'
+    }],
+    date: {
+        type: Date,
+        default: Date.now
+    },
+    creator: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Users'
+    }
 });
 
 export default mongoose.model('Bills',Bill);

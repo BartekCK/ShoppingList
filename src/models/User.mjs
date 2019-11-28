@@ -13,8 +13,8 @@ export const User = mongoose.Schema({
     role:[{
         type: String,
         required: true,
-    }]
+    }],
+    
 });
-
 
 export default mongoose.model('Users',User);

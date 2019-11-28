@@ -4,6 +4,7 @@ import newExpirationDate  from "../utilies/expirationDate.mjs";
 export const Product = mongoose.Schema({
     title:{
         type: String,
+        unique: true,
         require: true
     },
     price:{

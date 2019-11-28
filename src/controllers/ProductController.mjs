@@ -55,6 +55,14 @@ export default {
 
         return res.status(200).json(product);
         
+    },
+    async existInDb(searchingProduct){
+        const product = await ProductModel.find({title: searchingProduct.title},
+            {$exists: true});
+        if(product)
+            return true;
+        else 
+            return false;
     }
 
 };
