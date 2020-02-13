@@ -1,4 +1,4 @@
-import UserModel from '../models/User.mjs';
+import UserModel from '../models/User.js';
 
 export default {
     async create(req,res){

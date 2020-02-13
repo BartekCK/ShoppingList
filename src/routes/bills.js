@@ -1,6 +1,6 @@
 import express from 'express';
-import BillController from '../controllers/BillController.mjs'
-import {catchAsync} from '../middlewares/errors.mjs'
+import BillController from '../controllers/BillController.js'
+import {catchAsync} from '../middlewares/errors.js'
 
 export const billRoute = express.Router();
 

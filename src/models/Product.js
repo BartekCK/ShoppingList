@@ -1,5 +1,5 @@
 import mongoose from "mongoose";
-import newExpirationDate  from "../utilies/expirationDate.mjs";
+import newExpirationDate  from "../utilies/expirationDate.js";
 
 export const Product = mongoose.Schema({
     title:{

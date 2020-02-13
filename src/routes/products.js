@@ -1,6 +1,6 @@
 import express from 'express';
-import ProductController from '../controllers/ProductController.mjs'
-import {catchAsync} from '../middlewares/errors.mjs'
+import ProductController from '../controllers/ProductController.js'
+import {catchAsync} from '../middlewares/errors.js'
 
 export const productRoute = express.Router();
 

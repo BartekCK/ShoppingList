@@ -1,4 +1,4 @@
-import {app} from './config/app.mjs'
+import {app} from './config/app.js'
 import dotenv from "dotenv";
 dotenv.config({ silent: process.env.NODE_ENV === 'production' });
 

@@ -1,4 +1,4 @@
-import ProductModel from "../models/Product.mjs"
+import ProductModel from "../models/Product.js"
 
 
 export default {

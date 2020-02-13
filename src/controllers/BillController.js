@@ -1,6 +1,6 @@
-import BillModel from '../models/Bill.mjs';
-import UserModel from "../models/User.mjs"
-import ProductModel from "../models/Product.mjs"
+import BillModel from '../models/Bill.js';
+import UserModel from "../models/User.js"
+import ProductModel from "../models/Product.js"
 
 export default {
     async create(req,res){

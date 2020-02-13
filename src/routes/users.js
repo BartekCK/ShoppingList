@@ -1,6 +1,6 @@
 import express from 'express';
-import { catchAsync } from '../middlewares/errors.mjs';
-import UserController from '../controllers/UserController.mjs';
+import { catchAsync } from '../middlewares/errors.js';
+import UserController from '../controllers/UserController.js';
 
 export const userRoute = express.Router();
 
